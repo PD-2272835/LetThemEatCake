@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962d02279fbd6984288f3e944ca0e717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 10
   count: 0
   value: 6
   cakemanagerscript: {fileID: 505938378}
