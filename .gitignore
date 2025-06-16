@@ -87,3 +87,4 @@ crashlytics-build.properties
 #Ignore some other shite
 /[Aa]ssets/TextMesh Pro
 /[Aa]ssets/TextMesh Pro.meta
+/[Aa]ssets/Materials/LineMaterial.mat

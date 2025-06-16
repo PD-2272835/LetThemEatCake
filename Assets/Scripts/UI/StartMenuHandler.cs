@@ -5,17 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-
 public class StartMenuHandler : MonoBehaviour
 {
     [SerializeField] private Scene gameScene;
-    private GameObject parentCanvas;
-    //private GameObject 
-    
-    void Start()
-    {
-        parentCanvas = gameObject.transform.parent.gameObject; //get a cool lil ol reference
-    }
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject creditsMenu;
 
     public void StartGame()
     {
@@ -24,12 +18,13 @@ public class StartMenuHandler : MonoBehaviour
 
     public void OptionsMenu()
     {
+        optionsMenu.SetActive(true);
         gameObject.SetActive(false);
-
     }
 
     public void CreditsMenu()
     {
+        creditsMenu.SetActive(true);
         gameObject.SetActive(false);
     }
     

@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &845834279
 RectTransform:
   m_ObjectHideFlags: 0
@@ -785,7 +785,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864694364}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445268829}
+        m_TargetAssemblyTypeName: StartMenuHandler, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &864694364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +985,7 @@ GameObject:
   - component: {fileID: 1445268827}
   - component: {fileID: 1445268826}
   - component: {fileID: 1445268828}
+  - component: {fileID: 1445268829}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -1067,6 +1080,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1445268829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445268824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996a8e4ea5886da45ace47d3f6ab50a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameScene:
+    m_Handle: 0
+  optionsMenu: {fileID: 845834278}
+  creditsMenu: {fileID: 1478377535}
 --- !u!1 &1478377535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1478377536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1293,18 +1322,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1445268829}
+        m_TargetAssemblyTypeName: StartMenuHandler, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1554974747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1555,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859511382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445268829}
+        m_TargetAssemblyTypeName: StartMenuHandler, Assembly-CSharp
+        m_MethodName: OptionsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859511382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,7 +1822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2020995577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445268829}
+        m_TargetAssemblyTypeName: StartMenuHandler, Assembly-CSharp
+        m_MethodName: CreditsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2020995577
 MonoBehaviour:
   m_ObjectHideFlags: 0
