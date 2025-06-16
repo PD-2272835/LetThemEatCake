@@ -27,6 +27,11 @@ public class cakeScript : MonoBehaviour
             atendpoint = true;
             StartCoroutine(reachedEndPoint());
         }
+
+        if (selftransfrom.position.y < -5)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator reachedEndPoint()

@@ -22,6 +22,8 @@ public class ThrowCake : MonoBehaviour
     private Vector3 _startLocation;
     private Vector3 _endLocation;
 
+    public cakeManagerScript cakemanagerscript;
+
 
     private void Start()
     {
@@ -35,11 +37,23 @@ public class ThrowCake : MonoBehaviour
 
     private void Update()
     {
+        cake = cakemanagerscript.currentprefab;
         
         //Changes Enum state on mouse click
         if (Input.GetMouseButtonDown(0))
         {
-           IncrementState();
+            if (_currentState == ThrowState.Default)
+            {
+                bool throworno = cakemanagerscript.decreaseCakeBatter();
+                if (throworno == true)
+                {
+                    IncrementState();
+                }
+            }
+            else
+            {
+                IncrementState();
+            }
         }
         //Switches based on enum state
         switch (_currentState)
@@ -111,6 +125,9 @@ public class ThrowCake : MonoBehaviour
         Rigidbody2D rb = cakeObject.GetComponent<Rigidbody2D>();
         rb.velocity = CalculateThrowVelocity();
         _endLocation.x = _startLocation.x;
+        cakeScript cakescript = cakeObject.GetComponent<cakeScript>();
+        cakescript.endlocation.x = GetAimDistance();
+        cakescript.endlocation.y = _startLocation.y;
         _lineRenderer.enabled = false;
         _isMovingRight = true;
         IncrementState();

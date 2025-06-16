@@ -20,17 +20,17 @@ public class cakeManagerScript : MonoBehaviour
     void Update()
     {
         //checks for an input and sets the current cake to it
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKeyDown("1") && cakeBatter >= 5)
         {
             currentCake = 1;
             Debug.Log("1");
         }
-        else if (Input.GetKeyDown("2"))
+        else if (Input.GetKeyDown("2") && cakeBatter >= 10)
         {
             currentCake = 2;
             Debug.Log("2");
         }
-        else if (Input.GetKeyDown("3"))
+        else if (Input.GetKeyDown("3") && cakeBatter >= 20)
         {
             currentCake = 3;
             Debug.Log("3");
@@ -43,5 +43,34 @@ public class cakeManagerScript : MonoBehaviour
     public void addToBatter(int value) //adds to the cake batter when enemies die
     {
         cakeBatter += value * modifier;
+    }
+
+    public bool decreaseCakeBatter() //makes sure you have enough for the cake
+    {
+        switch(currentCake)
+        {
+            case 1:
+                if (cakeBatter >= 5)
+                {
+                    cakeBatter -= 5;
+                    return true;
+                }
+                break;
+            case 2:
+                if (cakeBatter >= 10)
+                {
+                    cakeBatter -= 10;
+                    return true;
+                }
+                break;
+            case 3:
+                if (cakeBatter >= 20)
+                {
+                    cakeBatter -= 20;
+                    return true;
+                }
+                break;
+        }
+        return false;
     }
 }
