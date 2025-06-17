@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ThrowCake : MonoBehaviour
@@ -23,6 +24,7 @@ public class ThrowCake : MonoBehaviour
     private Vector3 _endLocation;
 
     public cakeManagerScript cakemanagerscript;
+    [SerializeField] private Animator animator;
 
 
     private void Start()
@@ -121,6 +123,8 @@ public class ThrowCake : MonoBehaviour
       //Changes back to default state
     private void Throw(GameObject cakePrefab)
     {
+        StartCoroutine(playerThrowAnimation());
+
         GameObject cakeObject = Instantiate(cakePrefab, transform.position, Quaternion.identity);
         Rigidbody2D rb = cakeObject.GetComponent<Rigidbody2D>();
         rb.velocity = CalculateThrowVelocity();
@@ -133,6 +137,13 @@ public class ThrowCake : MonoBehaviour
         _lineRenderer.enabled = false;
         _isMovingRight = true;
         IncrementState();
+    }
+
+    private IEnumerator playerThrowAnimation()
+    {
+        animator.SetInteger("playerState", 2); //sets the player state to throwing so the animation can play
+        yield return new WaitForSeconds(0.27f);
+        animator.SetInteger("playerState", 0); //sets the player state to idle
     }
 
     //Calculates velocity to throw cake at to land on target
