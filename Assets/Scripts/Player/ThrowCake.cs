@@ -42,7 +42,7 @@ public class ThrowCake : MonoBehaviour
         //Changes Enum state on mouse click
         if (Input.GetMouseButtonDown(0))
         {
-            if (_currentState == ThrowState.Default)
+            if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
                 bool throworno = cakemanagerscript.decreaseCakeBatter();
                 if (throworno == true)
@@ -125,9 +125,11 @@ public class ThrowCake : MonoBehaviour
         Rigidbody2D rb = cakeObject.GetComponent<Rigidbody2D>();
         rb.velocity = CalculateThrowVelocity();
         _endLocation.x = _startLocation.x;
+        //makes sure the cake knows where it's landing
         cakeScript cakescript = cakeObject.GetComponent<cakeScript>();
         cakescript.endlocation.x = GetAimDistance();
         cakescript.endlocation.y = _startLocation.y;
+        
         _lineRenderer.enabled = false;
         _isMovingRight = true;
         IncrementState();
