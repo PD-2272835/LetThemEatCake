@@ -88,3 +88,5 @@ crashlytics-build.properties
 /[Aa]ssets/TextMesh Pro
 /[Aa]ssets/TextMesh Pro.meta
 /[Aa]ssets/Materials/LineMaterial.mat
+/[Aa]ssets/Materials/LineMaterial.mat.meta
+Assets/Materials/LineMaterial.mat
