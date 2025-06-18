@@ -12,13 +12,14 @@ public class CakeProjectile : MonoBehaviour
     public float size = 1;
     public bool buffer = false;
 
-    // Start is called before the first frame update
-    void Start()
+    //call this method to initialize the thrown object upon instance
+    public void Initialize(Vector2 landingPosition, CakeData cakeData)
     {
-        //getting the size of the sprite
-        size = transform.localScale.x;
+        endPos = landingPosition;
+        type = cakeData;
+        GetComponent<SpriteRenderer>().sprite = type.sprite;
+        size = transform.localScale.x; //getting the size of the sprite
     }
-    
 
     void Update()
     {
@@ -53,10 +54,5 @@ public class CakeProjectile : MonoBehaviour
                 hitEnemy.Hit(type.GetHitData());
             }
         }
-    }
-
-    public void SetLandingPosition(Vector2 landingPosition)
-    {
-        endPos = landingPosition;
     }
 }

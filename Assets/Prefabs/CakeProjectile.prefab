@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5598267182497309439}
   - component: {fileID: 5388051400613206939}
   m_Layer: 0
-  m_Name: CakeTemp
+  m_Name: CakeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

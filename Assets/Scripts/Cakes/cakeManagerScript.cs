@@ -6,11 +6,8 @@ using UnityEngine;
 public class cakeManagerScript : MonoBehaviour
 {
     public int cakeBatter = 100;
-    public GameObject[] allCakes; //stores the cake projectile prefabs
-    public GameObject currentCakePrefab; //current cake prefab
-    
-    private CakeData _currentCakeData;
-    
+    [SerializeField] private CakeData[] _allCakes; //stores the cake projectile prefabs
+    private CakeData _currentCake;
     
     void Update()
     {
@@ -25,28 +22,12 @@ public class cakeManagerScript : MonoBehaviour
             }
             //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
             //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
-            else if (keyPressed > allCakes.Length && cakeBatter >= allCakes[keyPressed - 1].GetComponent<CakeProjectile>().type.cost)
+            else if (keyPressed > _allCakes.Length && cakeBatter >= _allCakes[keyPressed - 1].cost)
             {
-                currentCakePrefab = allCakes[keyPressed - 1];
-                _currentCakeData = allCakes[keyPressed - 1].GetComponent<CakeProjectile>().type;
-                Debug.Log(_currentCakeData.name);
+                _currentCake = _allCakes[keyPressed - 1];
+                EventManager.UpdateCake(_currentCake);
+                Debug.Log(_currentCake.name);
             }
         }
-    }
-
-    public void AddBatter(int value) //adds to the cake batter when enemies die
-    {
-        cakeBatter += value;// * modifier;
-    }
-
-    //check that the player has enough batter to throw the current cake - if they do, decrease the batter
-    public bool CheckAndDecreaseCakeBatter()
-    {
-        if (cakeBatter >= _currentCakeData.cost)
-        {
-            cakeBatter -= _currentCakeData.cost;
-            return true;
-        }
-        return false;
     }
 }

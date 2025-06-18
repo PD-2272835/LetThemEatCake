@@ -7,7 +7,7 @@ public class ThrowCake : MonoBehaviour
     public bool isAiming;
     private LineRenderer _lineRenderer;
     [SerializeField] private Material lineMaterial;
-    public GameObject cake;
+    
     private enum ThrowState
     {
         Default,
@@ -22,8 +22,11 @@ public class ThrowCake : MonoBehaviour
     private bool _isMovingRight;
     private Vector3 _startLocation;
     private Vector3 _endLocation;
-
-    public cakeManagerScript cakemanagerscript;
+    
+    private GameObject _cakePrefab;
+    private CakeData _currentCake;
+    private GameStateManager _gameStateManager;
+    
     [SerializeField] private Animator animator;
 
 
@@ -37,17 +40,28 @@ public class ThrowCake : MonoBehaviour
         _lineRenderer.enabled = false;   
     }
 
+    //Bind the Event
+    public void OnEnable() { EventManager.OnUpdateCake += UpdateCurrentCakeData; }
+    public void OnDisable() { EventManager.OnUpdateCake -= UpdateCurrentCakeData; }
+
+    //Logic triggered on event call
+    void UpdateCurrentCakeData(CakeData newCake)
+    {
+        _currentCake = newCake;
+    }
+
+
     private void Update()
     {
-        cake = cakemanagerscript.currentCakePrefab;
         
         //Changes Enum state on mouse click
         if (Input.GetMouseButtonDown(0))
         {
             if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
-                if (cakemanagerscript.CheckAndDecreaseCakeBatter())
+                if (_gameStateManager.CheckBatter())
                 {
+                    _gameStateManager.UpdateBatter(-_currentCake.cost);
                     IncrementState();
                 }
             }
@@ -67,7 +81,7 @@ public class ThrowCake : MonoBehaviour
                 DrawCakeTrajectory(_startLocation,CalculateThrowVelocity());
                 break;
             case ThrowState.Throwing:
-                Throw(cake);
+                Throw(_cakePrefab);
                 break;
                 
         }
@@ -131,7 +145,7 @@ public class ThrowCake : MonoBehaviour
         
         //makes sure the new cake projectile knows where it's landing
         CakeProjectile cakeProjectile = cakeObject.GetComponent<CakeProjectile>();
-        cakeProjectile.SetLandingPosition(new Vector2(GetAimDistance(), _startLocation.y));
+        cakeProjectile.Initialize(new Vector2(GetAimDistance(), _startLocation.y), _currentCake);
 
         
         _lineRenderer.enabled = false;
