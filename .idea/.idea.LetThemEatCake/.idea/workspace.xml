@@ -14,7 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MenuPageHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpawnSystem/EnemySpawning.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -92,6 +92,7 @@
       <workItem from="1750080663650" duration="20699000" />
       <workItem from="1750169606314" duration="1237000" />
       <workItem from="1750174179590" duration="325000" />
+      <workItem from="1750255420954" duration="256000" />
     </task>
     <servers />
   </component>

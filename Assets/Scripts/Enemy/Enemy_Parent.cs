@@ -28,6 +28,7 @@ public class Enemy_Parent : MonoBehaviour
     health -= damage;
     if (health <= 0)
     {
+      EventManager.EnemyDied(this);
       Die();
     }
   }
