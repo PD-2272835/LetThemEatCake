@@ -355,6 +355,8 @@ MonoBehaviour:
   arcHeight: 4
   aimSpeedMult: 10
   maxAimDistance: 15
+  cakemanagerscript: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!212 &1897494606
 SpriteRenderer:
   m_ObjectHideFlags: 0

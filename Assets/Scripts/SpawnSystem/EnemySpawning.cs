@@ -10,7 +10,6 @@ public class EnemySpawning : MonoBehaviour
 
     private OnEnemyDeath _enemyDeath;
     
-    
     private Vector2 _originPoint;
     public int width;
     public int height;
@@ -95,9 +94,16 @@ public class EnemySpawning : MonoBehaviour
         }
     }
 
-    void OnEnemyDie(Enemy_Parent enemy)
+    public bool CheckForProtector()
     {
-        
+        foreach (var enemy in _enemiesAlive)
+        {
+            if (enemy.name == "Protector")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
    
