@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203009309}
   - component: {fileID: 203009308}
+  - component: {fileID: 203009310}
   m_Layer: 0
   m_Name: gameStateManager
   m_TagString: Untagged
@@ -168,6 +169,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203009310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203009307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ead0f95a01ba74997a8d9e0abc896b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cakeBatter: 100
+  _allCakes:
+  - {fileID: 11400000, guid: ac5c819277ecf644fb1826f0f4def02b, type: 2}
+  - {fileID: 11400000, guid: 163d05ad9914fe34081f38aec0a8b04c, type: 2}
+  - {fileID: 11400000, guid: e9d85b91e8db29843867d0a38270e7d0, type: 2}
+  _currentCake: {fileID: 0}
 --- !u!1001 &550468449
 PrefabInstance:
   m_ObjectHideFlags: 0

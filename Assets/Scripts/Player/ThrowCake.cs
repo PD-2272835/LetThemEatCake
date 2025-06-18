@@ -40,9 +40,16 @@ public class ThrowCake : MonoBehaviour
         _lineRenderer.enabled = false;   
     }
 
-    //Bind the Event
-    public void OnEnable() { EventManager.OnUpdateCake += UpdateCurrentCakeData; }
-    public void OnDisable() { EventManager.OnUpdateCake -= UpdateCurrentCakeData; }
+    //Bind Events
+    public void OnEnable()
+    {
+        EventManager.OnUpdateCake += UpdateCurrentCakeData;
+    }
+
+    public void OnDisable()
+    {
+        EventManager.OnUpdateCake -= UpdateCurrentCakeData;
+    }
 
     //Logic triggered on event call
     void UpdateCurrentCakeData(CakeData newCake)
@@ -74,12 +81,15 @@ public class ThrowCake : MonoBehaviour
         switch (_currentState)
         {
             case ThrowState.Default:
+                EventManager.SetMovementState(true);
                 break;
             case ThrowState.Aiming:
+                EventManager.SetMovementState(false);
                 animator.SetInteger("playerState", 2);
                 SetThrowPositions();
                 SetLineColour();
                 DrawCakeTrajectory(_startLocation,CalculateThrowVelocity());
+                
                 break;
             case ThrowState.Throwing:
                 Throw(_cakePrefab);
@@ -157,7 +167,7 @@ public class ThrowCake : MonoBehaviour
     private IEnumerator playerThrowAnimation()
     {
         animator.SetInteger("playerState", 3); //sets the player state to throwing so the animation can play
-        yield return new WaitForSeconds(0.27f);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         animator.SetInteger("playerState", 0); //sets the player state to idle
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     
-    public static GameStateManager instance;
+    public static GameStateManager Instance;
 
     public int startingBatter = 100;
     public int startingProgressionModifier;
@@ -19,9 +19,9 @@ public class GameStateManager : MonoBehaviour
     void Start()
     {
         //THIS IS A SINGLETON DO SINGLETON THING
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(this);
         } else
         {
@@ -77,6 +77,4 @@ public class GameStateManager : MonoBehaviour
     {
         throw new NotImplementedException();
     }
-    
-    
 }
