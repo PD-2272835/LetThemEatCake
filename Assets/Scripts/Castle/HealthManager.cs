@@ -9,7 +9,8 @@ public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     public float healthAmount = 100f;
-    public TMP_Text healthText;
+    public TMP_Text healthText; // Reference to the TextMeshPro text component
+    public GameObject gameOverPanel; // Reference to the Game Over panel
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +22,11 @@ public class HealthManager : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetKeyDown(KeyCode.Return))
+        //if (Input.GetKeyDown(KeyCode.Return)) // Down arrow to take damage
         //{
         //    TakeDamage(10);
         //}
-        //if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space)) // Space key to heal
         //{
         //    Heal(10);
         //}
@@ -36,10 +37,10 @@ public class HealthManager : MonoBehaviour
     {
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
-        healthText.text = "Health: " + healthAmount.ToString("F0"); // update health text
+        healthText.text = "Health: " + healthAmount.ToString("F0"); // Update health text
         if (healthAmount <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reload current scene
+            GameOver(); // Call GameOver method to show the Game Over panel
         }
     }
 
@@ -49,6 +50,11 @@ public class HealthManager : MonoBehaviour
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
 
         healthBar.fillAmount = healthAmount / 100f;
-        healthText.text = "Health: " + healthAmount.ToString("F0"); // update health text
+        healthText.text = "Health: " + healthAmount.ToString("F0"); // Update health text
+    }
+    
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true); // Show the Game Over panel
     }
 }
