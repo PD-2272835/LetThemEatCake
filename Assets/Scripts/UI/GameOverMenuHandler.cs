@@ -8,13 +8,13 @@ public class GameOverHandler : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
-        print("Loading Scene: " + sceneName);
+        //print("Loading Scene: " + sceneName);
         SceneManager.LoadScene(sceneName);
     }
 
     public void ExitGame()
     {
-        print("Exiting Game");
+        //print("Exiting Game");
         Application.Quit();
     }
 }
