@@ -17,9 +17,9 @@ public class MainMenuHandler : MonoBehaviour
         _currentPage = newPage;
     }
     
-    public void LoadScene(Scene scene)
+    public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene.buildIndex);
+        SceneManager.LoadScene(scene);
     }
     
     public void ExitGame()
