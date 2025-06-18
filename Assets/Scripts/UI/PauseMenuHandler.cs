@@ -14,12 +14,10 @@ public class PauseMenuHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf == false)
         {
-            //print("Escape key pressed, toggling pause menu.");
             PauseGame();
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && pauseMenu.activeSelf == true)
         {
-            //print("Return key pressed, resuming game.");
             ResumeGame();
         }
     }
@@ -27,25 +25,23 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        //print("Loading Scene: " + sceneName);
         SceneManager.LoadScene(sceneName);
     }
 
     public void PauseGame()
     {
+        EventManager.GamePause(); // Trigger the Game Pause event
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
     }
 
     public void ResumeGame()
     {
+        // Trigger the Game Resume event
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void OptionsMenu()
     {
         // open options menu
     }
-
 }

@@ -9,8 +9,8 @@ public class HealthManager : MonoBehaviour
 {
     public Image healthBar;
     public float healthAmount = 100f;
-    public TMP_Text healthText; // Reference to the TextMeshPro text component
-    public GameObject gameOverPanel; // Reference to the Game Over panel
+    public TMP_Text healthText;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +24,11 @@ public class HealthManager : MonoBehaviour
 
         //if (Input.GetKeyDown(KeyCode.Return)) // Down arrow to take damage
         //{
-        //    TakeDamage(10);
+        //    TakeDamage(20);
         //}
         //if (Input.GetKeyDown(KeyCode.Space)) // Space key to heal
         //{
-        //    Heal(10);
-        //}
-
+        //    Heal(20);
     }
 
     public void TakeDamage(float damage)
@@ -55,6 +53,6 @@ public class HealthManager : MonoBehaviour
     
     public void GameOver()
     {
-        gameOverPanel.SetActive(true); // Show the Game Over panel
+        EventManager.GameOver(); // Trigger the Game Over event
     }
 }
