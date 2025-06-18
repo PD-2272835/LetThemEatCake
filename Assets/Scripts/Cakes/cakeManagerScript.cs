@@ -16,18 +16,19 @@ public class cakeManagerScript : MonoBehaviour
         {
             //TryParse() here evaluates to 0 if the string provided is not a number/contains other characters
             int.TryParse(Input.inputString, out int keyPressed);
-            if (keyPressed == 0)
+            if (keyPressed != 0)
             {
-                return;
+                //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
+                //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
+                if (keyPressed > _allCakes.Length && cakeBatter >= _allCakes[keyPressed - 1].cost)
+                {
+                    Debug.Log("cake selected");
+                    _currentCake = _allCakes[keyPressed - 1];
+                    EventManager.UpdateCake(_currentCake);
+                    Debug.Log(_currentCake.name);
+                }
             }
-            //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
-            //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
-            else if (keyPressed > _allCakes.Length && cakeBatter >= _allCakes[keyPressed - 1].cost)
-            {
-                _currentCake = _allCakes[keyPressed - 1];
-                EventManager.UpdateCake(_currentCake);
-                Debug.Log(_currentCake.name);
-            }
+            
         }
     }
 }

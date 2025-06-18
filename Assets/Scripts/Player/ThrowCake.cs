@@ -23,9 +23,9 @@ public class ThrowCake : MonoBehaviour
     private Vector3 _startLocation;
     private Vector3 _endLocation;
     
-    private GameObject _cakePrefab;
+    [SerializeField]private GameObject _cakePrefab;
     private CakeData _currentCake;
-    private GameStateManager _gameStateManager;
+    [SerializeField]private GameStateManager _gameStateManager;
     
     [SerializeField] private Animator animator;
 
@@ -76,6 +76,7 @@ public class ThrowCake : MonoBehaviour
             case ThrowState.Default:
                 break;
             case ThrowState.Aiming:
+                animator.SetInteger("playerState", 2);
                 SetThrowPositions();
                 SetLineColour();
                 DrawCakeTrajectory(_startLocation,CalculateThrowVelocity());
@@ -155,7 +156,7 @@ public class ThrowCake : MonoBehaviour
 
     private IEnumerator playerThrowAnimation()
     {
-        animator.SetInteger("playerState", 2); //sets the player state to throwing so the animation can play
+        animator.SetInteger("playerState", 3); //sets the player state to throwing so the animation can play
         yield return new WaitForSeconds(0.27f);
         animator.SetInteger("playerState", 0); //sets the player state to idle
     }

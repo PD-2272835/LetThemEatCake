@@ -102,11 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAiming: 0
   lineMaterial: {fileID: 2100000, guid: 8d50b414286340646919bb1197848af2, type: 2}
-  cake: {fileID: 540139593500351279, guid: 28f075e89efb17446aebb5c595ea9784, type: 3}
   arcHeight: 4
   aimSpeedMult: 10
   maxAimDistance: 15
-  cakemanagerscript: {fileID: 0}
+  _cakePrefab: {fileID: 540139593500351279, guid: 28f075e89efb17446aebb5c595ea9784, type: 3}
+  _gameStateManager: {fileID: 0}
   animator: {fileID: 6274083968149610811}
 --- !u!114 &1386173671315151730
 MonoBehaviour:
