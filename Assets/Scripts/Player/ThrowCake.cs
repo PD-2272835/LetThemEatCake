@@ -39,15 +39,14 @@ public class ThrowCake : MonoBehaviour
 
     private void Update()
     {
-        cake = cakemanagerscript.currentprefab;
+        cake = cakemanagerscript.currentCakePrefab;
         
         //Changes Enum state on mouse click
         if (Input.GetMouseButtonDown(0))
         {
             if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
-                bool throworno = cakemanagerscript.decreaseCakeBatter();
-                if (throworno == true)
+                if (cakemanagerscript.CheckAndDecreaseCakeBatter())
                 {
                     IncrementState();
                 }
@@ -129,10 +128,11 @@ public class ThrowCake : MonoBehaviour
         Rigidbody2D rb = cakeObject.GetComponent<Rigidbody2D>();
         rb.velocity = CalculateThrowVelocity();
         _endLocation.x = _startLocation.x;
-        //makes sure the cake knows where it's landing
-        cakeScript cakescript = cakeObject.GetComponent<cakeScript>();
-        cakescript.endlocation.x = GetAimDistance();
-        cakescript.endlocation.y = _startLocation.y;
+        
+        //makes sure the new cake projectile knows where it's landing
+        CakeProjectile cakeProjectile = cakeObject.GetComponent<CakeProjectile>();
+        cakeProjectile.SetLandingPosition(new Vector2(GetAimDistance(), _startLocation.y));
+
         
         _lineRenderer.enabled = false;
         _isMovingRight = true;
@@ -192,10 +192,4 @@ public class ThrowCake : MonoBehaviour
         float interpValue = (Vector3.Distance(_startLocation,_endLocation)/(maxAimDistance));
         lineMaterial.SetFloat("_InterpValue",interpValue);
     }
-    
- 
-
-
-
-
 }

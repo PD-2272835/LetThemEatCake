@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//PLEASE READ - Pete
+//This needs to be refactored. Keeping for now as we need to know how the upgrade system should behave
+
 public class upgradeButtonScript : MonoBehaviour
 {
     public Button yourButton;
@@ -20,15 +23,15 @@ public class upgradeButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        btnText.SetText("Upgrade - " + cakemanagerscript.modifier.ToString() + "x (" + price.ToString() + ")"); //sets the button text to the current modifier and the price
+        //btnText.SetText("Upgrade - " + cakemanagerscript.modifier.ToString() + "x (" + price.ToString() + ")"); //sets the button text to the current modifier and the price
     }
 
     void TaskOnClick()
     {
         if (cakemanagerscript.cakeBatter > price)
         {
-            price = price + 50*cakemanagerscript.modifier; //price scales after purchase
-            cakemanagerscript.modifier++; //modifier increases
+            //price = price + 50*cakemanagerscript.modifier; //price scales after purchase
+            //cakemanagerscript.modifier++; //modifier increases
         }
     }
 }

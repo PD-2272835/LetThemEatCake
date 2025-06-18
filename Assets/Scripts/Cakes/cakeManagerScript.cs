@@ -1,75 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class cakeManagerScript : MonoBehaviour
 {
     public int cakeBatter = 100;
-    public int currentCake = 1;
-    public int modifier = 1;
-    public GameObject currentprefab;
-    public GameObject[] cakeprefabs; //stores the prefabs
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public GameObject[] allCakes; //stores the cake projectile prefabs
+    public GameObject currentCakePrefab; //current cake prefab
+    
+    private CakeData _currentCakeData;
+    
+    
     void Update()
     {
-        //checks for an input and sets the current cake to it
-        if (Input.GetKeyDown("1") && cakeBatter >= 5)
+        //prevent hardcoding each input value to a specific cake, so that up to nine cakes can be implemented easily
+        if (Input.anyKeyDown)
         {
-            currentCake = 1;
-            Debug.Log("1");
+            //TryParse() here evaluates to 0 if the string provided is not a number/contains other characters
+            int.TryParse(Input.inputString, out int keyPressed);
+            if (keyPressed == 0)
+            {
+                return;
+            }
+            //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
+            //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
+            else if (keyPressed > allCakes.Length && cakeBatter >= allCakes[keyPressed - 1].GetComponent<CakeProjectile>().type.cost)
+            {
+                currentCakePrefab = allCakes[keyPressed - 1];
+                _currentCakeData = allCakes[keyPressed - 1].GetComponent<CakeProjectile>().type;
+                Debug.Log(_currentCakeData.name);
+            }
         }
-        else if (Input.GetKeyDown("2") && cakeBatter >= 10)
-        {
-            currentCake = 2;
-            Debug.Log("2");
-        }
-        else if (Input.GetKeyDown("3") && cakeBatter >= 20)
-        {
-            currentCake = 3;
-            Debug.Log("3");
-        }
-
-        currentprefab = cakeprefabs[currentCake-1];
-
     }
 
-    public void addToBatter(int value) //adds to the cake batter when enemies die
+    public void AddBatter(int value) //adds to the cake batter when enemies die
     {
-        cakeBatter += value * modifier;
+        cakeBatter += value;// * modifier;
     }
 
-    public bool decreaseCakeBatter() //makes sure you have enough for the cake
+    //check that the player has enough batter to throw the current cake - if they do, decrease the batter
+    public bool CheckAndDecreaseCakeBatter()
     {
-        switch(currentCake)
+        if (cakeBatter >= _currentCakeData.cost)
         {
-            case 1:
-                if (cakeBatter >= 5)
-                {
-                    cakeBatter -= 5;
-                    return true;
-                }
-                break;
-            case 2:
-                if (cakeBatter >= 10)
-                {
-                    cakeBatter -= 10;
-                    return true;
-                }
-                break;
-            case 3:
-                if (cakeBatter >= 20)
-                {
-                    cakeBatter -= 20;
-                    return true;
-                }
-                break;
+            cakeBatter -= _currentCakeData.cost;
+            return true;
         }
         return false;
     }
