@@ -14,6 +14,10 @@ public class Enemy_Parent : MonoBehaviour
   public virtual void Update()
   {
     Move();
+    if (Input.GetKeyDown(KeyCode.Q))
+    {
+      TakeDamage(1);
+    }
   }
   
   public virtual void Move()

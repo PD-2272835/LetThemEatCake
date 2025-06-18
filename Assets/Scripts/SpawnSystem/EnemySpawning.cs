@@ -10,7 +10,6 @@ public class EnemySpawning : MonoBehaviour
 
     private OnEnemyDeath _enemyDeath;
     
-    
     private Vector2 _originPoint;
     public int width;
     public int height;
@@ -18,10 +17,11 @@ public class EnemySpawning : MonoBehaviour
     private float _maxVerticalBounds;
     
     [SerializeField] private List<WaveObject> waves;
-    private List<Enemy_Parent> _enemiesAlive;
+    private List<Enemy_Parent> _enemiesAlive = new List<Enemy_Parent>();
     private int _currentWaveIndex;
     private int _wavesCount;
     private float _currentWaveTimer;
+    private bool _waveHasSpawned;
 
     private void OnEnable()
     {
@@ -74,30 +74,39 @@ public class EnemySpawning : MonoBehaviour
             List<Vector2> spawnPoints = GetSpawnPoints(enemyCount);
             for (int i = 0; i < enemyCount; i++)
             {
-                Instantiate(currentWave.enemies[i], spawnPoints[i], Quaternion.identity);
-                _enemiesAlive.Add(currentWave.enemies[i]);
+                Enemy_Parent enemy = Instantiate(currentWave.enemies[i], spawnPoints[i], Quaternion.identity);
+                _enemiesAlive.Add(enemy);
                 print(spawnPoints[i]);
                 Debug.DrawLine(new Vector3(spawnPoints[i].x , spawnPoints[i].y, 0), new Vector3(spawnPoints[i].x + .2f, spawnPoints[i].y, 0), Color.green, 3f);
             }
+            _waveHasSpawned = true;
             _currentWaveTimer = currentWave.nextWaveDelayTimer;
     }
 
     private void CheckNextWaveConditions()
     {
         _currentWaveTimer -= Time.deltaTime;
-        if (_currentWaveTimer <= 0 || _enemiesAlive.Count == 0)
+        if (_waveHasSpawned && _currentWaveTimer <= 0 || _waveHasSpawned && _enemiesAlive.Count == 0)
         {
             if (_currentWaveIndex != _wavesCount)
             {
                 _currentWaveIndex++;
+                _waveHasSpawned = false;
                 SpawnNextWave();
             }
         }
     }
 
-    void OnEnemyDie(Enemy_Parent enemy)
+    public bool CheckForProtector()
     {
-        
+        foreach (var enemy in _enemiesAlive)
+        {
+            if (enemy.name == "Protector")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
    
