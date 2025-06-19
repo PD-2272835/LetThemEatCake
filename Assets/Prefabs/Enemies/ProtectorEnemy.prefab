@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 126149184, guid: 981dc84fed3df224aaffc8c404dae77d, type: 3}
-  m_Color: {r: 1, g: 0.54402506, b: 0.5715651, a: 1}
+  m_Sprite: {fileID: 686974914, guid: 0f808f2a266683140bcc64f486551ee0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   name: Base Class
   health: 3
   moveSpeed: 10
+  rewardValue: 5
 --- !u!95 &3334667138193845592
 Animator:
   serializedVersion: 5
@@ -112,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 7525126157037269507}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a8dc02e3bec8d6846b18f76787a38d84, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91d6db68f23786f418e444894c8f23e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
