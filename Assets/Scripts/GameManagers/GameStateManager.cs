@@ -93,7 +93,7 @@ public class GameStateManager : MonoBehaviour
         _progression++;
         if (_progression <= allCakes.Length)
         {
-            UpdateBatter(-allCakes[_progression].upgradeCost);
+            UpdateBatter(-allCakes[_progression - 1].upgradeCost);
         }
     }
 

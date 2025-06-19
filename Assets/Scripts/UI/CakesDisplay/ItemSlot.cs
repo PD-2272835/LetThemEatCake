@@ -38,6 +38,7 @@ public class ItemSlot : MonoBehaviour
     {
         lockOverlay.SetActive(false); 
         costText.text = _heldCake.useCost.ToString();
+        costIndicator.SetActive(true);
     }
     
     public void NextToUnlock()

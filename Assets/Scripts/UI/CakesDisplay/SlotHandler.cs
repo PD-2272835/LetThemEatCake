@@ -41,14 +41,14 @@ public class SlotHandler : MonoBehaviour
 
     void OnUpgrade()
     {
-        if (_gameStateManager.GetProgression() + 1 > slots.Count)
+        if (_gameStateManager.GetProgression() + 1 < slots.Count)
         {
-            slots[_gameStateManager.GetProgression()].Unlock();
-            slots[_gameStateManager.GetProgression() + 1].NextToUnlock();
+            slots[_gameStateManager.GetProgression() - 1].Unlock();
+            slots[_gameStateManager.GetProgression()].NextToUnlock();
         }
         else
         {
-            slots[_gameStateManager.GetProgression()].Unlock();
+            slots[_gameStateManager.GetProgression() - 1].Unlock();
         }
     }
 }
