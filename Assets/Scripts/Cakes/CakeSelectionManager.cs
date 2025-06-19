@@ -25,16 +25,23 @@ public class CakeSelectionManager : MonoBehaviour
                 _prospectedCake = _gameStateManager.allCakes[keyPressed - 1];
                 
                 //if the cake selected is equal to the next progression value, and we have enough batter, upgrade
-                if (keyPressed == _gameStateManager.GetProgression() + 1 && _gameStateManager.CheckBatter(_prospectedCake.upgradeCost))
+                if (keyPressed == _gameStateManager.GetProgression() + 1)
                 {
-                    EventManager.Upgrade();
-                    EventManager.UpdateCake(_prospectedCake);
+                    if(_gameStateManager.CheckBatter(_prospectedCake.upgradeCost))
+                    {
+                        EventManager.Upgrade();
+                        EventManager.UpdateCake(_prospectedCake);
+                    }
+                    else
+                    {
+                        _prospectedCake = _gameStateManager.allCakes[0];
+                    }
                 }
-                else
+                else if (keyPressed > _gameStateManager.GetProgression() + 1)
                 {
                     _prospectedCake = _gameStateManager.allCakes[0];
                 }
-                
+
                 EventManager.UpdateCake(_prospectedCake);
                 Debug.Log(_gameStateManager.GetCurrentCake().name + " selected");
             }

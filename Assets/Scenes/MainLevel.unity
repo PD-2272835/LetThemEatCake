@@ -365,22 +365,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2476987917191866681, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476987917191866681, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476987917191866681, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2476987917191866681, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3519935516327811257, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
       propertyPath: m_Name
       value: GameplayUI
@@ -389,22 +373,6 @@ PrefabInstance:
       propertyPath: _gameStateManager
       value: 
       objectReference: {fileID: 203009308}
-    - target: {fileID: 7818203683270902097, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818203683270902097, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818203683270902097, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818203683270902097, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8398098069142064932, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -499,22 +467,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400722093094213650, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887966322835959201, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887966322835959201, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887966322835959201, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887966322835959201, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
