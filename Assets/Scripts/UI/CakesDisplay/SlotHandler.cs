@@ -39,9 +39,17 @@ public class SlotHandler : MonoBehaviour
     }
 
 
+    
+    //Shitty Stupid Fucking Race Condition Hack Fix
     void OnUpgrade()
     {
-        if (_gameStateManager.GetProgression() + 1 < slots.Count)
+        StartCoroutine(RaceConditionFix(0.1f));
+    }
+
+    IEnumerator RaceConditionFix(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        if (_gameStateManager.GetProgression() < slots.Count)
         {
             slots[_gameStateManager.GetProgression() - 1].Unlock();
             slots[_gameStateManager.GetProgression()].NextToUnlock();
