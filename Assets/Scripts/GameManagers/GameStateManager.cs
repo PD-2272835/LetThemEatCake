@@ -11,10 +11,11 @@ public class GameStateManager : MonoBehaviour
     public int startingBatter = 100;
     public int startingProgressionModifier;
     
-    
+    public CakeData[] allCakes;
     private int _currentBatter;
     private CakeData _currentCake;
     private int _progressionModifier;
+    
     
     void Start()
     {
@@ -23,10 +24,12 @@ public class GameStateManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this);
+            gameObject.tag = "GameStateManager";
         } else
         {
             Destroy(gameObject);
         }
+        ResetGame();
     }
 
     //Bind Events in here
@@ -35,6 +38,7 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnUpdateCake += UpdateCurrentCake;
         EventManager.OnGameOver += GameOver;
         EventManager.OnGamePause += PauseGame;
+        EventManager.OnUpgrade += ProgressionUpgrade;
     }
 
     public void OnDisable()
@@ -42,20 +46,24 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnUpdateCake -= UpdateCurrentCake;
         EventManager.OnGameOver -= GameOver; 
         EventManager.OnGamePause -= PauseGame;
+        EventManager.OnUpgrade -= ProgressionUpgrade;
     }
 
-    
-    
     
     void UpdateCurrentCake(CakeData newCake)
     {
         _currentCake = newCake;
     }
     
-    //check that the player has enough batter to throw the current cake
-    public bool CheckBatter()
+    public CakeData GetCurrentCake()
     {
-        if (_currentBatter >= _currentCake.cost)
+        return _currentCake;
+    }
+    
+    //check that the player has enough batter to throw the current cake
+    public bool CheckBatter(int batterQuery)
+    {
+        if (_currentBatter >= batterQuery)
         {
             return true;
         }
@@ -65,7 +73,24 @@ public class GameStateManager : MonoBehaviour
     //pass positive to increase batter, pass negative to decrease
     public void UpdateBatter(int batter)
     {
-        _currentBatter += batter;
+        _currentBatter += batter; 
+    }
+    
+    public int GetBatter()
+    {
+        return _currentBatter;
+    }
+    
+    void ProgressionUpgrade()
+    {
+        _progressionModifier++;
+    }
+
+    void ResetGame()
+    {
+        _currentBatter = startingBatter;
+        _currentCake = allCakes[0];
+        _progressionModifier = startingProgressionModifier;
     }
     
     void GameOver()

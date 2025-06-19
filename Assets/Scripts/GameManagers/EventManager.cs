@@ -25,6 +25,13 @@ public static class EventManager
         OnUpdateCake?.Invoke(cake);
     }
 
+    public static event Action OnUpgrade;
+
+    public static void Upgrade()
+    {
+        OnUpgrade?.Invoke();
+    }
+
     
     public static event Action OnGameOver;
     public static void GameOver()

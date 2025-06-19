@@ -42,7 +42,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
+<<<<<<< Updated upstream
     - _InterpValue: 0.41515452
+=======
+    - _InterpValue: 0.32691982
+>>>>>>> Stashed changes
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

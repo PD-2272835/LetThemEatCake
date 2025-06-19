@@ -6,7 +6,8 @@ using UnityEngine;
 public class CakeData : ScriptableObject
 {
     public string typeName;
-    public int cost;
+    public int useCost;
+    public int upgradeCost;
     public int rewardModifier;
     public Sprite sprite;
     
