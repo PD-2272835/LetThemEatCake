@@ -28,10 +28,10 @@ public class upgradeButtonScript : MonoBehaviour
 
     void TaskOnClick()
     {
-        if (cakemanagerscript.cakeBatter > price)
+        /*if (cakemanagerscript.cakeBatter > price)
         {
             //price = price + 50*cakemanagerscript.modifier; //price scales after purchase
             //cakemanagerscript.modifier++; //modifier increases
-        }
+        }*/
     }
 }

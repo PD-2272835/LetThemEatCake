@@ -42,16 +42,19 @@ public class CakeProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (atEndPos && !buffer)
+        Debug.Log("CALL");
+        if (!buffer)
         {
-            if (col.CompareTag("Enemy")) //checks for an enemy
+            if (col.gameObject.tag == "Enemy") //checks for an enemy
             {
+                Debug.Log("ENEMY");
                 buffer = true;
                 var hitEnemy = col.gameObject.GetComponent<Enemy_Parent>();
 
                 hitEnemy.Hit(type.GetHitData());
+                Destroy(this.gameObject);
             }
         }
     }

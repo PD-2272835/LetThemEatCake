@@ -5,7 +5,7 @@ namespace Enemy
         private void Start()
         {
             name = "SlowEnemy";
-            moveSpeed = 5;
+            moveSpeed = 0.25f;
             health = 5;
         }
 

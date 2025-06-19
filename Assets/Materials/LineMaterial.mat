@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LineMaterial
-  m_Shader: {fileID: 4800000, guid: bf6ab947f62628c42ad5e5a7c02012b5, type: 3}
+  m_Name: lineMaterial
+  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -42,11 +42,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-<<<<<<< Updated upstream
-    - _InterpValue: 0.41515452
-=======
-    - _InterpValue: 0.32691982
->>>>>>> Stashed changes
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
