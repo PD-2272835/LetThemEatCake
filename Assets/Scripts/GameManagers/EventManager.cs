@@ -25,6 +25,19 @@ public static class EventManager
         OnUpdateCake?.Invoke(cake);
     }
 
+    public static event Action isProtectorAlive;
+
+    public static void CheckForIfProtectorAlive()
+    {
+        isProtectorAlive?.Invoke();
+    }
+
+    public static event Action<bool> UpdateProtectorInEnemy;
+
+    public static void UpdateProtectorInEnemyFunction(bool state)
+    {
+        UpdateProtectorInEnemy?.Invoke(state);
+    }
     public static event Action OnUpgrade;
 
     public static void Upgrade()

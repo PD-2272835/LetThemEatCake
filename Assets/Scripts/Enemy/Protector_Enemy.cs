@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Protector_Enemy : Enemy_Parent
+namespace Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Protector_Enemy : Enemy_Parent
     {
-        name = "Protector";
-        moveSpeed = 2;
-        health = 2;
-    }
-
-    protected override void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
+        // Start is called before the first frame update
+        void Start()
         {
-            EventManager.EnemyDied(this);
-            Die();
+            name = "Protector";
+            moveSpeed = 2;
+            health = 2;
+        }
+
+        protected override void TakeDamage(int damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                EventManager.EnemyDied(this);
+                Die();
+            }
         }
     }
 }

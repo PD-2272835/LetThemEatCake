@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,14 +11,21 @@ public class Enemy_Parent : MonoBehaviour
   public int moveSpeed = 10;
   private int rewardValue = 1;
   private int _count = 0; //track the number of iterations in DamageOverTime
+  private bool isProtectorAlive;
+
+  private void OnEnable()
+  {
+    EventManager.UpdateProtectorInEnemy += UpdateProtectorStatus;
+  }
+
+  private void OnDisable()
+  {
+    EventManager.UpdateProtectorInEnemy -= UpdateProtectorStatus;
+  }
 
   public virtual void Update()
   {
     Move();
-    if (Input.GetKeyDown(KeyCode.Q))
-    {
-      TakeDamage(1);
-    }
   }
   
   public virtual void Move()
@@ -30,7 +38,11 @@ public class Enemy_Parent : MonoBehaviour
   
   protected virtual void TakeDamage(int damage)
   {
-    health -= damage;
+    EventManager.CheckForIfProtectorAlive();
+    if (!isProtectorAlive)
+    {
+      health -= damage;
+    }
     if (health <= 0)
     {
       EventManager.EnemyDied(this);
@@ -38,6 +50,10 @@ public class Enemy_Parent : MonoBehaviour
     }
   }
 
+  protected void UpdateProtectorStatus(bool state)
+  {
+    isProtectorAlive = state;
+  }
   protected virtual void Die()
   {
     Debug.Log(name + "Death");

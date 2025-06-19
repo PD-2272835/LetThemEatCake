@@ -26,11 +26,13 @@ public class EnemySpawning : MonoBehaviour
     private void OnEnable()
     {
         EventManager.OnEnemyDied += EventManagerEnemyDeath;
+        EventManager.isProtectorAlive += CheckForProtector;
     }
 
     private void OnDisable()
     {
         EventManager.OnEnemyDied -= EventManagerEnemyDeath;
+        EventManager.isProtectorAlive -= CheckForProtector;
     }
 
     private void EventManagerEnemyDeath(Enemy_Parent enemy)
@@ -97,16 +99,18 @@ public class EnemySpawning : MonoBehaviour
         }
     }
 
-    public bool CheckForProtector()
+    public void CheckForProtector()
     {
+        bool hasFoundProtector = false;
         foreach (var enemy in _enemiesAlive)
         {
             if (enemy.name == "Protector")
             {
-                return true;
+                hasFoundProtector = true;
+                break;
             }
         }
-        return false;
+        EventManager.UpdateProtectorInEnemyFunction(hasFoundProtector);
     }
 
    
