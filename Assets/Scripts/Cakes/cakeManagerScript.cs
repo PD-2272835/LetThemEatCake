@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class cakeManagerScript : MonoBehaviour
 {
-    private GameStateManager _gameStateManager;
+    [SerializeField]private GameStateManager _gameStateManager;
 
     void Start()
     {
-        _gameStateManager = GameObject.FindGameObjectsWithTag("GameStateManager")[0].GetComponent<GameStateManager>();
+        //_gameStateManager = GameObject.FindGameObjectsWithTag("GameStateManager")[0].GetComponent<GameStateManager>();
     }
     
     void Update()
@@ -22,9 +22,9 @@ public class cakeManagerScript : MonoBehaviour
 
             //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
             //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
-            if (keyPressed != 0 && keyPressed < _gameStateManager.allCakes.Length)
+            if (keyPressed != 0 && keyPressed <= _gameStateManager.allCakes.Length)
             {
-                if (keyPressed >)
+                //if (keyPressed >)
                 EventManager.UpdateCake(_gameStateManager.allCakes[keyPressed - 1]);
                 Debug.Log(_gameStateManager.GetCurrentCake().name + " selected");
             }

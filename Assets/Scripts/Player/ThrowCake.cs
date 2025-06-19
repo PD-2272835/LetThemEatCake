@@ -16,7 +16,7 @@ public class ThrowCake : MonoBehaviour
     }
     private ThrowState _currentState;
     private ThrowState[] _states;
-    [SerializeField]private float arcHeight = 4f;
+    [SerializeField]private float arcHeight = 2f;
     [SerializeField]private float aimSpeedMult = 10f;
     [SerializeField]private float maxAimDistance = 15f;
     private bool _isMovingRight;
@@ -66,9 +66,9 @@ public class ThrowCake : MonoBehaviour
         {
             if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
-                if (_gameStateManager.CheckBatter())
+                if (_gameStateManager.CheckBatter(_currentCake.useCost))
                 {
-                    _gameStateManager.UpdateBatter(-_currentCake.cost);
+                    _gameStateManager.UpdateBatter(-_currentCake.useCost);
                     IncrementState();
                 }
             }
@@ -120,6 +120,7 @@ public class ThrowCake : MonoBehaviour
     private void SetThrowPositions()
     {
         _startLocation = transform.position;
+        _endLocation.y = transform.position.y;
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _startLocation);
         if (_isMovingRight)
@@ -167,7 +168,7 @@ public class ThrowCake : MonoBehaviour
     private IEnumerator playerThrowAnimation()
     {
         animator.SetInteger("playerState", 3); //sets the player state to throwing so the animation can play
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        yield return new WaitForSeconds(0.15f);
         animator.SetInteger("playerState", 0); //sets the player state to idle
     }
 

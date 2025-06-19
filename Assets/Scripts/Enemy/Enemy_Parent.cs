@@ -8,7 +8,7 @@ public class Enemy_Parent : MonoBehaviour
 {
   public new string name = "Base Class";
   public int health = 3;
-  public int moveSpeed = 10;
+  public float moveSpeed = 5;
   private int rewardValue = 1;
   private int _count = 0; //track the number of iterations in DamageOverTime
   private bool isProtectorAlive;

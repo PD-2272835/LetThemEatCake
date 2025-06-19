@@ -1,13 +1,16 @@
+using UnityEngine;
+
 namespace Enemy
 {
     public class Enemy_Shield : Enemy_Parent
     {
         public bool hasShield = true;
+        public Animator animator;
         
         void Start()
         {
             name = "ShieldEnemy";
-            moveSpeed = 5;
+            moveSpeed = 0.25f;
             health = 1;
         }
 
@@ -16,6 +19,7 @@ namespace Enemy
             if (hasShield)
             {
                 hasShield = false;
+                animator.SetBool("sheild", false);
             }
             else
             {

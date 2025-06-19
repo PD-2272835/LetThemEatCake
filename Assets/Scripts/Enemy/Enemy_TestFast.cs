@@ -5,7 +5,7 @@ namespace Enemy
         void Start()
         {
             name = "FastEnemy";
-            moveSpeed = 20;
+            moveSpeed = 1f;
             health = 1;
         }
     }
