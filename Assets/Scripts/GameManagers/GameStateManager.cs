@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
@@ -90,7 +91,10 @@ public class GameStateManager : MonoBehaviour
     public void ProgressionUpgrade()
     {
         _progression++;
-        UpdateBatter(allCakes[_progression].upgradeCost);
+        if (_progression <= allCakes.Length)
+        {
+            UpdateBatter(-allCakes[_progression].upgradeCost);
+        }
     }
 
     public int GetProgression()
