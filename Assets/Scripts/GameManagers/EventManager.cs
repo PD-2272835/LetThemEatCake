@@ -58,4 +58,12 @@ public static class EventManager
     {
         OnGamePause?.Invoke();
     }
+
+    public static event Action<int> OnUpdateBatterValue;
+
+    public static void UpdateBatterValue(int value)
+    {
+        OnUpdateBatterValue?.Invoke(value);
+    }
+
 }

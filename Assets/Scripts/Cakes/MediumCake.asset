@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: MediumCake
   m_EditorClassIdentifier: 
   typeName: 
-  cost: 0
+  useCost: 0
+  upgradeCost: 0
   rewardModifier: 0
   sprite: {fileID: 21300000, guid: f3612ab5046ad164db86d6242ac7e74e, type: 3}
-  damage: 0
+  damage: 3
   tickPeriod: 0
   tickDamage: 0
   tickCount: 0
