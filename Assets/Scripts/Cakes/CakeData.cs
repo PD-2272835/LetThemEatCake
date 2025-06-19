@@ -8,7 +8,6 @@ public class CakeData : ScriptableObject
     public string typeName;
     public int useCost;
     public int upgradeCost;
-    public int rewardModifier;
     public Sprite sprite;
     
     //hit data
@@ -16,13 +15,6 @@ public class CakeData : ScriptableObject
     [SerializeField] private float tickPeriod;
     [SerializeField] private int tickDamage;
     [SerializeField] private int tickCount;
-    
-    
-    public int GetBatterRewardValue(int enemyReward)
-    {
-        int res = enemyReward * rewardModifier;
-        return res;
-    }
 
     public float[] GetHitData()
     {

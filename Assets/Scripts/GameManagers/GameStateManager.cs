@@ -9,12 +9,12 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager Instance;
 
     public int startingBatter = 100;
-    public int startingProgressionModifier;
-    
+    public int startingProgression = 1;
     public CakeData[] allCakes;
+    
     private int _currentBatter;
     private CakeData _currentCake;
-    private int _progressionModifier;
+    private int _progression;
     
     
     void Start()
@@ -81,16 +81,22 @@ public class GameStateManager : MonoBehaviour
         return _currentBatter;
     }
     
-    void ProgressionUpgrade()
+    public void ProgressionUpgrade()
     {
-        _progressionModifier++;
+        _progression++;
+        UpdateBatter(allCakes[_progression].upgradeCost);
+    }
+
+    public int GetProgression()
+    {
+        return _progression;
     }
 
     void ResetGame()
     {
         _currentBatter = startingBatter;
         _currentCake = allCakes[0];
-        _progressionModifier = startingProgressionModifier;
+        _progression = startingProgression;
     }
     
     void GameOver()
