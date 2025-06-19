@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnGamePause += PauseGame;
         EventManager.OnUpgrade += ProgressionUpgrade;
         EventManager.OnUpdateBatterValue += UpdateBatter;
+        EventManager.OnBustKilled += GameOver;
     }
 
     public void OnDisable()
@@ -56,6 +58,8 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnGameOver -= GameOver; 
         EventManager.OnGamePause -= PauseGame;
         EventManager.OnUpgrade -= ProgressionUpgrade;
+        EventManager.OnUpdateBatterValue -= UpdateBatter;
+        EventManager.OnBustKilled -= GameOver;
     }
 
     
@@ -139,5 +143,10 @@ public class GameStateManager : MonoBehaviour
             canThrow = true;
             Time.timeScale = 1f;
         }
+    }
+    
+    private void GameWin()
+    {
+        SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
     }
 }

@@ -57,18 +57,13 @@ public class EnemySpawning : MonoBehaviour
 
     private void Update()
     {
-       CheckNextWaveConditions();
-       waveNoText.SetText("Wave: " + (_currentWaveIndex+1).ToString());
+        CheckNextWaveConditions();
+        waveNoText.SetText("Wave: " + (_currentWaveIndex + 1).ToString());
 
-       if (_currentWaveIndex >= _wavesCount)
-       {
-        gameWin();
-       }
-    }
-
-    private void gameWin()
-    {
-        SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
+        /*if (_currentWaveIndex >= _wavesCount)
+        {
+         gameWin();
+        }*/
     }
 
 

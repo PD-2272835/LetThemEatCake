@@ -66,5 +66,11 @@ public static class EventManager
     {
         OnUpdateBatterValue?.Invoke(value);
     }
+    
+    public static event Action OnBustKilled;
+    public static void BustKilled()
+    {
+        OnBustKilled?.Invoke();
+    }
 
 }
