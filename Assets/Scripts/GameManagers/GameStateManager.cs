@@ -19,6 +19,8 @@ public class GameStateManager : MonoBehaviour
     private int _progressionModifier;
     [SerializeField]private int _progression;
 
+    public bool canThrow = true;
+
     public GameObject gameOverUIPrefab;
     private GameObject _gameOverUIInstance;
     
@@ -107,6 +109,7 @@ public class GameStateManager : MonoBehaviour
         _currentBatter = startingBatter;
         _currentCake = allCakes[0];
         _progression = startingProgression;
+        canThrow = true;
     }
     
     void GameOver()
@@ -114,6 +117,7 @@ public class GameStateManager : MonoBehaviour
         if (_gameOverUIInstance == null)
         {
             _gameOverUIInstance = Instantiate(gameOverUIPrefab);
+            canThrow = false;
         }
         else
         {
@@ -123,12 +127,16 @@ public class GameStateManager : MonoBehaviour
 
     void PauseGame()
     {
-        if (Time.timeScale == 1f)
+        if (Time.timeScale == 1f) //not paused
         {
+            //pause game
+            canThrow = false;
             Time.timeScale = 0f;
         }
-        else
+        else //paused
         {
+            //unpause game
+            canThrow = true;
             Time.timeScale = 1f;
         }
     }

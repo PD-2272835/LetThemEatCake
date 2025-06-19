@@ -43,7 +43,7 @@ public class ThrowCake : MonoBehaviour
     {
         
         //Changes Enum state on mouse click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && _gameStateManager.canThrow)
         {
             if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
