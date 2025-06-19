@@ -50,8 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Base Class
   health: 3
-  moveSpeed: 0.5
-  rewardValue: 5
+  moveSpeed: 1
+  rewardValue: 2
+  animator: {fileID: -3188647275415963207}
 --- !u!212 &-3953266247743333550
 SpriteRenderer:
   m_ObjectHideFlags: 0

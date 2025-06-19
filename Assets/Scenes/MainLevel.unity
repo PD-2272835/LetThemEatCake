@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad5768d36d15e14a9cf87d912ccc738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingBatter: 100
+  startingBatter: 3000
   startingProgression: 1
   allCakes:
   - {fileID: 11400000, guid: ac5c819277ecf644fb1826f0f4def02b, type: 2}
@@ -190,6 +190,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameStateManager: {fileID: 203009308}
+  checkState: {fileID: 218240904}
+--- !u!114 &218240904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1766190451150770717, guid: b00aba98ee678894d8e1fcff5c7d8168, type: 3}
+  m_PrefabInstance: {fileID: 1390868710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5778af2714ce87649847d04649275bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &550468449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,34 +329,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 900695204083885913, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 133.9134
-      objectReference: {fileID: 0}
-    - target: {fileID: 900695204083885913, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 35.8598
-      objectReference: {fileID: 0}
-    - target: {fileID: 900695204083885913, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -242.08774
-      objectReference: {fileID: 0}
-    - target: {fileID: 900695204083885913, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 200.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579090087739705434, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_fontSize
-      value: 32.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579090087739705434, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1579090087739705434, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1670175084105061815, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -369,10 +353,6 @@ PrefabInstance:
       propertyPath: _gameStateManager
       value: 
       objectReference: {fileID: 203009308}
-    - target: {fileID: 5420643405699456997, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 19be3bacd1ae47148b8484d139cd0d23, type: 3}
     - target: {fileID: 8398098069142064932, guid: 18debb95e9d337047b7bc1c4b053ef5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

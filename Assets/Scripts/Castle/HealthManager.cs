@@ -21,14 +21,10 @@ public class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //if (Input.GetKeyDown(KeyCode.Return)) // Down arrow to take damage
-        //{
-        //    TakeDamage(20);
-        //}
-        //if (Input.GetKeyDown(KeyCode.Space)) // Space key to heal
-        //{
-        //    Heal(20);
+        if (healthAmount <= 0)
+        {
+            GameOver(); // Call GameOver method to show the Game Over panel
+        }
     }
 
     public void TakeDamage(float damage)
@@ -36,10 +32,6 @@ public class HealthManager : MonoBehaviour
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
         healthText.text = "Health: " + healthAmount.ToString("F0"); // Update health text
-        if (healthAmount <= 0)
-        {
-            GameOver(); // Call GameOver method to show the Game Over panel
-        }
     }
 
     public void Heal(float healingAmount)

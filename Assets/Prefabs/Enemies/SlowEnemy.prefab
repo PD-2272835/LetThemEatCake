@@ -52,6 +52,7 @@ MonoBehaviour:
   health: 3
   moveSpeed: 0.25
   rewardValue: 5
+  animator: {fileID: 1518197363974533564}
 --- !u!212 &1025881038273505129
 SpriteRenderer:
   m_ObjectHideFlags: 0

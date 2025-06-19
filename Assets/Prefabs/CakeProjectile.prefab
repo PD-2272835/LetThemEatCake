@@ -165,3 +165,4 @@ MonoBehaviour:
   size: 1
   buffer: 0
   hasHitSomething: 0
+  animator: {fileID: 0}

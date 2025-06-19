@@ -15,6 +15,7 @@ public class ThrowCake : MonoBehaviour
         Throwing,
     }
     private ThrowState _currentState;
+    public int intstate = 1;
     private ThrowState[] _states;
     [SerializeField]private float arcHeight = 2f;
     [SerializeField]private float aimSpeedMult = 10f;
@@ -62,9 +63,11 @@ public class ThrowCake : MonoBehaviour
         switch (_currentState)
         {
             case ThrowState.Default:
+                intstate = 1;
                 EventManager.SetMovementState(true);
                 break;
             case ThrowState.Aiming:
+                intstate = 0;
                 EventManager.SetMovementState(false);
                 animator.SetInteger("playerState", 2);
                 SetThrowPositions();

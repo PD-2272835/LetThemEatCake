@@ -16,7 +16,7 @@ MonoBehaviour:
   useCost: 7
   upgradeCost: 25
   sprite: {fileID: 21300000, guid: ea2908d21f9d37546a9b19920ca6a28c, type: 3}
-  damage: 1
+  damage: 3
   tickPeriod: 0
   tickDamage: 0
   tickCount: 0

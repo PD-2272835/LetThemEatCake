@@ -5,7 +5,7 @@ namespace Enemy
         private void Start()
         {
             name = "BustEnemy";
-            moveSpeed = 0.1f;
+            moveSpeed = 0.25f;
             health = 50;
             rewardValue = 100;
         }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: -6852257938042069735, guid: 1cd0ccc34aa69b8478ffdde0607ceff1, type: 3}
-  waveBatterReward: 50
+  waveBatterReward: 60
   nextWaveDelayTimer: 35

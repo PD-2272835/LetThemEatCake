@@ -103,6 +103,7 @@ MonoBehaviour:
   health: 3
   moveSpeed: 10
   rewardValue: 5
+  animator: {fileID: 3334667138193845592}
 --- !u!95 &3334667138193845592
 Animator:
   serializedVersion: 5

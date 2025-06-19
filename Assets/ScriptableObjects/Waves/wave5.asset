@@ -17,5 +17,5 @@ MonoBehaviour:
   - {fileID: 3430320068028794281, guid: 544befa587d797049b818b7a40eff62a, type: 3}
   - {fileID: 3430320068028794281, guid: 544befa587d797049b818b7a40eff62a, type: 3}
   - {fileID: 3430320068028794281, guid: 544befa587d797049b818b7a40eff62a, type: 3}
-  waveBatterReward: 40
+  waveBatterReward: 45
   nextWaveDelayTimer: 20

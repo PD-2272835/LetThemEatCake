@@ -12,6 +12,7 @@ public class Enemy_Parent : MonoBehaviour
   public int rewardValue = 5;
   private int _count = 0; //track the number of iterations in DamageOverTime
   private bool isProtectorAlive;
+  public Animator animator;
 
   private void OnEnable()
   {
@@ -57,6 +58,13 @@ public class Enemy_Parent : MonoBehaviour
 
     EventManager.UpdateBatterValue(rewardValue);
     
+    StartCoroutine(deathAnimation());
+  }
+
+  protected IEnumerator deathAnimation()
+  {
+    animator.SetBool("dead", true);
+    yield return new WaitForSeconds(0.3f);
     Destroy(gameObject);
   }
 

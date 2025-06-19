@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BigCake
   m_EditorClassIdentifier: 
   typeName: 
-  useCost: 6
+  useCost: 7
   upgradeCost: 20
   sprite: {fileID: 21300000, guid: 1a55208157b41a847bfdd41749069c64, type: 3}
-  damage: 2
+  damage: 4
   tickPeriod: 0
   tickDamage: 0
   tickCount: 0

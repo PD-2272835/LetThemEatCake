@@ -125,6 +125,7 @@ MonoBehaviour:
   health: 3
   moveSpeed: 5
   rewardValue: 5
+  animator: {fileID: 1518197363974533564}
 --- !u!50 &-2708406858068522089
 Rigidbody2D:
   serializedVersion: 4

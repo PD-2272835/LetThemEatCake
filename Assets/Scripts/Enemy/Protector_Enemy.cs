@@ -6,9 +6,9 @@ namespace Enemy
         void Start()
         {
             name = "Protector";
-            moveSpeed = 0.5f;
-            health = 2;
-            rewardValue = 1;
+            moveSpeed = 1f;
+            health = 1;
+            rewardValue = 5;
         }
 
         protected override void TakeDamage(int damage)

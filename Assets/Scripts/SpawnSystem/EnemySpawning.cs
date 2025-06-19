@@ -5,6 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawning : MonoBehaviour
 {
@@ -58,6 +59,16 @@ public class EnemySpawning : MonoBehaviour
     {
        CheckNextWaveConditions();
        waveNoText.SetText("Wave: " + (_currentWaveIndex+1).ToString());
+
+       if (_currentWaveIndex >= _wavesCount)
+       {
+        gameWin();
+       }
+    }
+
+    private void gameWin()
+    {
+        SceneManager.LoadScene("WinScene", LoadSceneMode.Additive);
     }
 
 

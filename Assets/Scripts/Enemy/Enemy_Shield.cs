@@ -5,14 +5,13 @@ namespace Enemy
     public class Enemy_Shield : Enemy_Parent
     {
         public bool hasShield = true;
-        public Animator animator;
         
         void Start()
         {
             name = "ShieldEnemy";
-            moveSpeed = 0.25f;
+            moveSpeed = 0.5f;
             health = 1;
-            rewardValue = 7;
+            rewardValue = 3;
         }
 
         protected override void TakeDamage(int damage)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpicyCake
   m_EditorClassIdentifier: 
   typeName: SpicyCake
-  useCost: 5
+  useCost: 9
   upgradeCost: 35
   sprite: {fileID: 21300000, guid: 8e94df3d59fc674459a0661e87a6741d, type: 3}
   damage: 2
