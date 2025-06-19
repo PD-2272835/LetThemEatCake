@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad5768d36d15e14a9cf87d912ccc738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingBatter: 3000
+  startingBatter: 50
   startingProgression: 1
   allCakes:
   - {fileID: 11400000, guid: ac5c819277ecf644fb1826f0f4def02b, type: 2}
@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 163d05ad9914fe34081f38aec0a8b04c, type: 2}
   - {fileID: 11400000, guid: add5252dc5f2c394e9cd5cc1bfe60f78, type: 2}
   _progression: 0
+  canThrow: 1
   gameOverUIPrefab: {fileID: 1090808331}
 --- !u!4 &203009309
 Transform:

@@ -68,7 +68,7 @@ public class EnemySpawning : MonoBehaviour
 
     private void gameWin()
     {
-        SceneManager.LoadScene("WinScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
     }
 
 
