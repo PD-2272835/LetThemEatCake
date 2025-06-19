@@ -318,6 +318,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 242525417936635318, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242525417936635318, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2aaecee18523e654b9f4e4f9573ebc56, type: 3}
+    - target: {fileID: 242525417936635318, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 261043199490216960, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -465,6 +477,10 @@ PrefabInstance:
     - target: {fileID: 3264555090000117451, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647017062177594707, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4044571412307032536, guid: a3b94f3fb0d02d045bd93fb9eda9452e, type: 3}
       propertyPath: m_AnchorMax.y

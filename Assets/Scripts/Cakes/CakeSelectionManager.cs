@@ -37,7 +37,7 @@ public class CakeSelectionManager : MonoBehaviour
                         _prospectedCake = _gameStateManager.allCakes[0];
                     }
                 }
-                else if (keyPressed > _gameStateManager.GetProgression() + 1)
+                else if (keyPressed >= _gameStateManager.GetProgression() + 1)
                 {
                     _prospectedCake = _gameStateManager.allCakes[0];
                 }

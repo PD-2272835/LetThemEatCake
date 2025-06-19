@@ -38,15 +38,15 @@ public class SlotHandler : MonoBehaviour
         slots[1].NextToUnlock();
     }
 
-    
+
     void OnUpgrade()
     {
-        try
+        if (_gameStateManager.GetProgression() + 1 > slots.Count)
         {
             slots[_gameStateManager.GetProgression()].Unlock();
             slots[_gameStateManager.GetProgression() + 1].NextToUnlock();
         }
-        finally
+        else
         {
             slots[_gameStateManager.GetProgression()].Unlock();
         }
