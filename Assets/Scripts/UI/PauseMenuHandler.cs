@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -36,7 +37,7 @@ public class PauseMenuHandler : MonoBehaviour
 
     public void ResumeGame()
     {
-        // Trigger the Game Resume event
+        EventManager.GamePause(); // Trigger the Game Pause event to resume (if time scale is 0, set it to 1)
         pauseMenu.SetActive(false);
     }
 

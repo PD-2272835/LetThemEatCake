@@ -8,7 +8,6 @@ public class GameOverHandler : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
-        //print("Loading Scene: " + sceneName);
         SceneManager.LoadScene(sceneName);
     }
 

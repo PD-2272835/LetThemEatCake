@@ -15,8 +15,11 @@ public class GameStateManager : MonoBehaviour
     private int _currentBatter;
     private CakeData _currentCake;
     private int _progressionModifier;
-    
-    
+
+    public GameObject gameOverUIPrefab;
+    private GameObject _gameOverUIInstance;
+
+
     void Start()
     {
         //THIS IS A SINGLETON DO SINGLETON THING
@@ -95,11 +98,25 @@ public class GameStateManager : MonoBehaviour
     
     void GameOver()
     {
-        throw new NotImplementedException();
+        if (_gameOverUIInstance == null)
+        {
+            _gameOverUIInstance = Instantiate(gameOverUIPrefab);
+        }
+        else
+        {
+            _gameOverUIInstance.SetActive(true);
+        }
     }
 
     void PauseGame()
     {
-        throw new NotImplementedException();
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 }
