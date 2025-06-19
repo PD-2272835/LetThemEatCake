@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class cakeManagerScript : MonoBehaviour
+public class CakeSelectionManager : MonoBehaviour
 {
 
     [SerializeField]private GameStateManager _gameStateManager;
@@ -23,6 +23,8 @@ public class cakeManagerScript : MonoBehaviour
             if (keyPressed != 0 && keyPressed <= _gameStateManager.allCakes.Length)
             {
                 _prospectedCake = _gameStateManager.allCakes[keyPressed - 1];
+                
+                //if the cake selected is equal to the next progression value, and we have enough batter, upgrade
                 if (keyPressed == _gameStateManager.GetProgression() + 1 && _gameStateManager.CheckBatter(_prospectedCake.upgradeCost))
                 {
                     EventManager.Upgrade();
