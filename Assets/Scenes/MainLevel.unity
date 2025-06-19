@@ -740,6 +740,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152252973949732399, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152252973949732399, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251143183091577027, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 761431283fa892c40bf9c2a6c617f345, type: 3}
+    - target: {fileID: 4251143183091577027, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251143183091577027, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251143183091577027, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4545349643454361985, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -819,6 +843,14 @@ PrefabInstance:
     - target: {fileID: 4545349643454361985, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579316518421294742, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579316518421294742, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6959847995521072840, guid: e8ca7615ba1a66943837630f45ebaa72, type: 3}
       propertyPath: m_Name
@@ -1512,7 +1544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1537300838
 MonoBehaviour:
   m_ObjectHideFlags: 0
