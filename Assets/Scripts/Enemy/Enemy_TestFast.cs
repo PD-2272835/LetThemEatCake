@@ -7,6 +7,7 @@ namespace Enemy
             name = "FastEnemy";
             moveSpeed = 1f;
             health = 1;
+            rewardValue = 6;
         }
     }
 }

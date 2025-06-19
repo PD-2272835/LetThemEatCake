@@ -44,6 +44,7 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnGameOver += GameOver;
         EventManager.OnGamePause += PauseGame;
         EventManager.OnUpgrade += ProgressionUpgrade;
+        EventManager.OnUpdateBatterValue += UpdateBatter;
     }
 
     public void OnDisable()

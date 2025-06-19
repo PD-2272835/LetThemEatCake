@@ -12,6 +12,8 @@ public class CakeProjectile : MonoBehaviour
     public float size = 1;
     public bool buffer = false;
 
+    public bool hasHitSomething = false;
+
     //call this method to initialize the thrown object upon instance
     public void Initialize(Vector2 landingPosition, CakeData cakeData)
     {
@@ -19,43 +21,62 @@ public class CakeProjectile : MonoBehaviour
         type = cakeData;
         GetComponent<SpriteRenderer>().sprite = type.sprite;
         size = transform.localScale.x; //getting the size of the sprite
+        if (type.name == "PiercingCake")
+        {
+            GetComponent<CircleCollider2D>().isTrigger = true;
+        }
     }
 
     void Update()
     {
-        //check for when this projectile reaches the target position
-        if (transform.position.x <= endPos.x + size && transform.position.x >= endPos.x - size && transform.position.y <= endPos.y + size && transform.position.y >= endPos.y - size)
-        {
-            atEndPos = true;
-            StartCoroutine(EndPointReached());
-        }
-
         if (transform.position.y < -5)
         {
             Destroy(gameObject);
         }
     }
 
-    IEnumerator EndPointReached()
+    /*IEnumerator EndPointReached()
     {
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
-    }
+    }*/
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("CALL");
-        if (!buffer)
+        if (type.name == "BigCake")
         {
             if (col.gameObject.tag == "Enemy") //checks for an enemy
-            {
-                Debug.Log("ENEMY");
-                buffer = true;
-                var hitEnemy = col.gameObject.GetComponent<Enemy_Parent>();
+                {
+                    buffer = true;
+                    var hitEnemy = col.gameObject.GetComponent<Enemy_Parent>();
 
-                hitEnemy.Hit(type.GetHitData());
-                Destroy(this.gameObject);
+                    hitEnemy.Hit(type.GetHitData());
+                }
+        }
+        else
+        {
+            if (!buffer)
+            {
+                if (col.gameObject.tag == "Enemy") //checks for an enemy
+                {
+                    buffer = true;
+                    var hitEnemy = col.gameObject.GetComponent<Enemy_Parent>();
+
+                    hitEnemy.Hit(type.GetHitData());
+                    Destroy(this.gameObject);
+                }
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy") //checks for an enemy
+        {
+            buffer = true;
+            var hitEnemy = col.gameObject.GetComponent<Enemy_Parent>();
+
+            hitEnemy.Hit(type.GetHitData());
         }
     }
 }

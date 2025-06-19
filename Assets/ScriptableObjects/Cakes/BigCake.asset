@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36e30ff33d9efe74aa3ed697141b4b58, type: 3}
-  m_Name: SmallCake
+  m_Name: BigCake
   m_EditorClassIdentifier: 
   typeName: 
-  useCost: 0
+  useCost: 6
   upgradeCost: 0
-  rewardModifier: 0
-  sprite: {fileID: 21300000, guid: fc185e17d530303499eed80204689768, type: 3}
-  damage: 1
+  sprite: {fileID: 21300000, guid: 1a55208157b41a847bfdd41749069c64, type: 3}
+  damage: 2
   tickPeriod: 0
   tickDamage: 0
   tickCount: 0

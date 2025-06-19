@@ -12,6 +12,7 @@ namespace Enemy
             name = "ShieldEnemy";
             moveSpeed = 0.25f;
             health = 1;
+            rewardValue = 7;
         }
 
         protected override void TakeDamage(int damage)

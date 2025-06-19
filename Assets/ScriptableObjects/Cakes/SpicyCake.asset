@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36e30ff33d9efe74aa3ed697141b4b58, type: 3}
-  m_Name: MediumCake
+  m_Name: SpicyCake
   m_EditorClassIdentifier: 
-  typeName: 
-  useCost: 0
+  typeName: SpicyCake
+  useCost: 5
   upgradeCost: 0
-  rewardModifier: 0
-  sprite: {fileID: 21300000, guid: f3612ab5046ad164db86d6242ac7e74e, type: 3}
-  damage: 3
-  tickPeriod: 0
-  tickDamage: 0
-  tickCount: 0
+  sprite: {fileID: 21300000, guid: 8e94df3d59fc674459a0661e87a6741d, type: 3}
+  damage: 2
+  tickPeriod: 3
+  tickDamage: 1
+  tickCount: 4

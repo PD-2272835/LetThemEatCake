@@ -70,6 +70,10 @@ public class EnemySpawning : MonoBehaviour
 
     private void SpawnNextWave()
     {
+            if (_currentWaveIndex != 0)
+            {
+                EventManager.UpdateBatterValue(waves[_currentWaveIndex-1].waveBatterReward);
+            }
             Debug.Log("Spawning wave" + _currentWaveIndex);
             WaveObject currentWave = waves[_currentWaveIndex];
             int enemyCount = currentWave.enemies.Count;
@@ -78,7 +82,7 @@ public class EnemySpawning : MonoBehaviour
             {
                 Enemy_Parent enemy = Instantiate(currentWave.enemies[i], spawnPoints[i], Quaternion.identity);
                 _enemiesAlive.Add(enemy);
-                print(spawnPoints[i]);
+                //print(spawnPoints[i]);
                 Debug.DrawLine(new Vector3(spawnPoints[i].x , spawnPoints[i].y, 0), new Vector3(spawnPoints[i].x + .2f, spawnPoints[i].y, 0), Color.green, 3f);
             }
             _waveHasSpawned = true;

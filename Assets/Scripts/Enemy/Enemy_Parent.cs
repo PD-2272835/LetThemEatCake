@@ -9,7 +9,7 @@ public class Enemy_Parent : MonoBehaviour
   public new string name = "Base Class";
   public int health = 3;
   public float moveSpeed = 5;
-  private int rewardValue = 1;
+  public int rewardValue = 5;
   private int _count = 0; //track the number of iterations in DamageOverTime
   private bool isProtectorAlive;
 
@@ -33,9 +33,6 @@ public class Enemy_Parent : MonoBehaviour
     transform.Translate(Vector2.left * (moveSpeed * Time.deltaTime));
   }
 
-  
-  
-  
   protected virtual void TakeDamage(int damage)
   {
     EventManager.CheckForIfProtectorAlive();
@@ -57,6 +54,8 @@ public class Enemy_Parent : MonoBehaviour
   protected virtual void Die()
   {
     Debug.Log(name + "Death");
+
+    EventManager.UpdateBatterValue(rewardValue);
     
     Destroy(gameObject);
   }
