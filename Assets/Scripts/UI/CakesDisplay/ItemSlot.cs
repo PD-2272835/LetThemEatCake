@@ -44,6 +44,7 @@ public class ItemSlot : MonoBehaviour
     {
         costIndicator.SetActive(true);
         costText.text = _heldCake.upgradeCost.ToString();
+        costIndicator.SetActive(true);
     }
     
     

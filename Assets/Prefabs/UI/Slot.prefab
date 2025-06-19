@@ -32,9 +32,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 953221308215921031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -7}
   m_SizeDelta: {x: 17.9668, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8161928604457536525
@@ -241,9 +241,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 953221308215921031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 7.5, y: -7.5}
   m_SizeDelta: {x: 15, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &132878232832593430
@@ -300,7 +300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953221308215921031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65771e3cd7cc9434c84a4327e2458e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _heldCake: {fileID: 0}
   selectedSlotSprite: {fileID: 21300000, guid: c951f76d3696996428eeb8365ba52e11, type: 3}
   deselectedSlotSprite: {fileID: 21300000, guid: 77ddf408cd7ac4f46bacb32e59b8e2c8, type: 3}
   costText: {fileID: 9037771357667427110}
