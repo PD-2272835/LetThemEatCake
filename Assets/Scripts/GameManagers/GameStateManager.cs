@@ -16,7 +16,7 @@ public class GameStateManager : MonoBehaviour
     private CakeData _currentCake;
 
     private int _progressionModifier;
-    private int _progression;
+    [SerializeField]private int _progression;
 
     public GameObject gameOverUIPrefab;
     private GameObject _gameOverUIInstance;

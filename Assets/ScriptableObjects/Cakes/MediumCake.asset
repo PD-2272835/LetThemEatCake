@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: 
   useCost: 10
-  upgradeCost: 0
+  upgradeCost: 30
   sprite: {fileID: 21300000, guid: f3612ab5046ad164db86d6242ac7e74e, type: 3}
   damage: 5
   tickPeriod: 0

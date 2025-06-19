@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1670175084105061815}
   - component: {fileID: 7098753909565443983}
   - component: {fileID: 2160877491014689604}
+  - component: {fileID: 4145195152536051260}
   m_Layer: 5
   m_Name: QuantityReadout
   m_TagString: Untagged
@@ -552,6 +553,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4145195152536051260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505823872765682380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0695f706eb5b0994e99f4d5fd8e6ca34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameStateManager: {fileID: 0}
+  text: {fileID: 2160877491014689604}
 --- !u!1 &1596008614477022528
 GameObject:
   m_ObjectHideFlags: 0
