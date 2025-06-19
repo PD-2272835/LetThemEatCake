@@ -24,7 +24,6 @@ public class ThrowCake : MonoBehaviour
     private Vector3 _endLocation;
     
     [SerializeField]private GameObject _cakePrefab;
-    private CakeData _currentCake;
     [SerializeField]private GameStateManager _gameStateManager;
     
     [SerializeField] private Animator animator;
@@ -40,24 +39,6 @@ public class ThrowCake : MonoBehaviour
         _lineRenderer.enabled = false;   
     }
 
-    //Bind Events
-    public void OnEnable()
-    {
-        EventManager.OnUpdateCake += UpdateCurrentCakeData;
-    }
-
-    public void OnDisable()
-    {
-        EventManager.OnUpdateCake -= UpdateCurrentCakeData;
-    }
-
-    //Logic triggered on event call
-    void UpdateCurrentCakeData(CakeData newCake)
-    {
-        _currentCake = newCake;
-    }
-
-
     private void Update()
     {
         
@@ -66,9 +47,9 @@ public class ThrowCake : MonoBehaviour
         {
             if (_currentState == ThrowState.Default) //makes sure you have enough batter for the cake
             {
-                if (_gameStateManager.CheckBatter(_currentCake.useCost))
+                if (_gameStateManager.CheckBatter(_gameStateManager.GetCurrentCake().useCost))
                 {
-                    _gameStateManager.UpdateBatter(-_currentCake.useCost);
+                    _gameStateManager.UpdateBatter(-_gameStateManager.GetCurrentCake().useCost);
                     IncrementState();
                 }
             }
@@ -157,7 +138,7 @@ public class ThrowCake : MonoBehaviour
         
         //makes sure the new cake projectile knows where it's landing
         CakeProjectile cakeProjectile = cakeObject.GetComponent<CakeProjectile>();
-        cakeProjectile.Initialize(new Vector2(GetAimDistance(), _startLocation.y), _currentCake);
+        cakeProjectile.Initialize(new Vector2(GetAimDistance(), _startLocation.y), _gameStateManager.GetCurrentCake());
 
         
         _lineRenderer.enabled = false;
