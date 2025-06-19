@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
+using TMPro;
 
 public class EnemySpawning : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class EnemySpawning : MonoBehaviour
     private int _wavesCount;
     private float _currentWaveTimer;
     private bool _waveHasSpawned;
+
+    [SerializeField]private TMP_Text waveNoText;
 
     private void OnEnable()
     {
@@ -53,6 +57,7 @@ public class EnemySpawning : MonoBehaviour
     private void Update()
     {
        CheckNextWaveConditions();
+       waveNoText.SetText("Wave: " + (_currentWaveIndex+1).ToString());
     }
 
 
