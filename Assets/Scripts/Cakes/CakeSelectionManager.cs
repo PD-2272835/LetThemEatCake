@@ -30,6 +30,10 @@ public class CakeSelectionManager : MonoBehaviour
                     EventManager.Upgrade();
                     EventManager.UpdateCake(_prospectedCake);
                 }
+                else
+                {
+                    _prospectedCake = _gameStateManager.allCakes[0];
+                }
                 
                 EventManager.UpdateCake(_prospectedCake);
                 Debug.Log(_gameStateManager.GetCurrentCake().name + " selected");
