@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class cakeManagerScript : MonoBehaviour
 {
-    [SerializeField]private GameStateManager _gameStateManager;
 
-    void Start()
-    {
-        //_gameStateManager = GameObject.FindGameObjectsWithTag("GameStateManager")[0].GetComponent<GameStateManager>();
-    }
+    [SerializeField]private GameStateManager _gameStateManager;
+    private CakeData _prospectedCake;
+
     
     void Update()
     {
@@ -24,8 +22,14 @@ public class cakeManagerScript : MonoBehaviour
             //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
             if (keyPressed != 0 && keyPressed <= _gameStateManager.allCakes.Length)
             {
-                //if (keyPressed >)
-                EventManager.UpdateCake(_gameStateManager.allCakes[keyPressed - 1]);
+                _prospectedCake = _gameStateManager.allCakes[keyPressed - 1];
+                if (keyPressed == _gameStateManager.GetProgression() + 1 && _gameStateManager.CheckBatter(_prospectedCake.upgradeCost))
+                {
+                    EventManager.Upgrade();
+                    EventManager.UpdateCake(_prospectedCake);
+                }
+                
+                EventManager.UpdateCake(_prospectedCake);
                 Debug.Log(_gameStateManager.GetCurrentCake().name + " selected");
             }
         }
