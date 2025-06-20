@@ -60,6 +60,12 @@ public static class EventManager
         OnGamePause?.Invoke();
     }
 
+    public static event Action OnGameRestart;
+    public static void RestartGame()
+    {
+        OnGameRestart?.Invoke();
+    }
+
     public static event Action<int> OnUpdateBatterValue;
 
     public static void UpdateBatterValue(int value)

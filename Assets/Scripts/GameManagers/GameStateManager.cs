@@ -26,7 +26,7 @@ public class GameStateManager : MonoBehaviour
     private GameObject _gameOverUIInstance;
     
 
-    void Start()
+    void Awake()
     {
         //THIS IS A SINGLETON DO SINGLETON THING
         if (Instance == null)
@@ -49,7 +49,8 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnGamePause += PauseGame;
         EventManager.OnUpgrade += ProgressionUpgrade;
         EventManager.OnUpdateBatterValue += UpdateBatter;
-        EventManager.OnBustKilled += GameOver;
+        EventManager.OnBustKilled += GameWin;
+        EventManager.OnGameRestart += ResetGame;
     }
 
     public void OnDisable()
@@ -59,7 +60,8 @@ public class GameStateManager : MonoBehaviour
         EventManager.OnGamePause -= PauseGame;
         EventManager.OnUpgrade -= ProgressionUpgrade;
         EventManager.OnUpdateBatterValue -= UpdateBatter;
-        EventManager.OnBustKilled -= GameOver;
+        EventManager.OnBustKilled -= GameWin;
+        EventManager.OnGameRestart += ResetGame;
     }
 
     
@@ -114,6 +116,7 @@ public class GameStateManager : MonoBehaviour
         _currentCake = allCakes[0];
         _progression = startingProgression;
         canThrow = true;
+        Time.timeScale = 1f;
     }
     
     void GameOver()
@@ -121,12 +124,12 @@ public class GameStateManager : MonoBehaviour
         if (_gameOverUIInstance == null)
         {
             _gameOverUIInstance = Instantiate(gameOverUIPrefab);
-            canThrow = false;
         }
         else
         {
             _gameOverUIInstance.SetActive(true);
         }
+        canThrow = false;
     }
 
     void PauseGame()

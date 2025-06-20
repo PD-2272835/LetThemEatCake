@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1386173671315151730}
   - component: {fileID: 1555888951920959447}
   - component: {fileID: 6274083968149610811}
+  - component: {fileID: 1740146488380948910}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -102,7 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAiming: 0
   lineMaterial: {fileID: 2100000, guid: 8d50b414286340646919bb1197848af2, type: 2}
-  arcHeight: 4
+  intstate: 1
+  arcHeight: 2
   aimSpeedMult: 10
   maxAimDistance: 15
   _cakePrefab: {fileID: 540139593500351279, guid: 28f075e89efb17446aebb5c595ea9784, type: 3}
@@ -120,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1faa188995985844a9ae8904e586afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
+  movementSpeed: 5
   bounds:
   - 4
   - -4
@@ -250,3 +252,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1740146488380948910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430367501912669026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ead0f95a01ba74997a8d9e0abc896b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkState: {fileID: 1766190451150770717}

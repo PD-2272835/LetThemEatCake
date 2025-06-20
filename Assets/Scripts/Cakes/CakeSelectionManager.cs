@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class CakeSelectionManager : MonoBehaviour
 {
-
-    [SerializeField]private GameStateManager _gameStateManager;
     private CakeData _prospectedCake;
 
     public ThrowCake checkState;
+
+    void Awake()
+    {
+        checkState = gameObject.GetComponent<ThrowCake>();
+    }
 
     
     void Update()
@@ -24,30 +27,30 @@ public class CakeSelectionManager : MonoBehaviour
 
                 //Check that the number returned by TryParse() is not larger than the number of implemented cakes, to prevent an out of range error,
                 //then check that the player has enough batter to throw the cake, preventing them from switching to this cake if not
-                if (keyPressed != 0 && keyPressed <= _gameStateManager.allCakes.Length)
+                if (keyPressed != 0 && keyPressed <= GameStateManager.Instance.allCakes.Length)
                 {
-                    _prospectedCake = _gameStateManager.allCakes[keyPressed - 1];
+                    _prospectedCake = GameStateManager.Instance.allCakes[keyPressed - 1];
                     
                     //if the cake selected is equal to the next progression value, and we have enough batter, upgrade
-                    if (keyPressed == _gameStateManager.GetProgression() + 1)
+                    if (keyPressed == GameStateManager.Instance.GetProgression() + 1)
                     {
-                        if(_gameStateManager.CheckBatter(_prospectedCake.upgradeCost))
+                        if(GameStateManager.Instance.CheckBatter(_prospectedCake.upgradeCost))
                         {
                             EventManager.Upgrade();
                             EventManager.UpdateCake(_prospectedCake);
                         }
                         else
                         {
-                            _prospectedCake = _gameStateManager.allCakes[0];
+                            _prospectedCake = GameStateManager.Instance.allCakes[0];
                         }
                     }
-                    else if (keyPressed >= _gameStateManager.GetProgression() + 1)
+                    else if (keyPressed >= GameStateManager.Instance.GetProgression() + 1)
                     {
-                        _prospectedCake = _gameStateManager.allCakes[0];
+                        _prospectedCake = GameStateManager.Instance.allCakes[0];
                     }
 
                     EventManager.UpdateCake(_prospectedCake);
-                    Debug.Log(_gameStateManager.GetCurrentCake().name + " selected");
+                    Debug.Log(GameStateManager.Instance.GetCurrentCake().name + " selected");
                 }
             }
         }

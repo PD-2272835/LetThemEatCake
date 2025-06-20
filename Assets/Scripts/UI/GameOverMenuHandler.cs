@@ -8,12 +8,7 @@ public class GameOverHandler : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        Destroy(this);
         SceneManager.LoadScene(sceneName);
-    }
-
-    public void ExitGame()
-    {
-        //print("Exiting Game");
-        Application.Quit();
     }
 }

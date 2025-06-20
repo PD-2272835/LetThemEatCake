@@ -52,7 +52,7 @@ public class Enemy_Parent : MonoBehaviour
   {
     isProtectorAlive = state;
   }
-  protected virtual void Die()
+  public virtual void Die()
   {
     Debug.Log(name + "Death");
 

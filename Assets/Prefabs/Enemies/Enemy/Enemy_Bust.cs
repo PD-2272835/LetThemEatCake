@@ -10,7 +10,7 @@ namespace Enemy
             rewardValue = 100;
         }
 
-        protected override void Die()
+        public override void Die()
         {
             EventManager.BustKilled();
         }

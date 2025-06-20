@@ -22,6 +22,9 @@ public class CastleCollision : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GetComponent<HealthManager>().TakeDamage(10);
+            Enemy_Parent enemy = collision.gameObject.GetComponent<Enemy_Parent>();
+            EventManager.EnemyDied(enemy);
+            enemy.Die();
         }
     }
 }
